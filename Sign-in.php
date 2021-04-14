@@ -30,7 +30,7 @@
 
 <!-- site metas -->
 
-<title>Sign Up</title>
+<title>Sign In</title>
 
 <meta name="keywords" content="">
 
@@ -126,7 +126,7 @@
 
                                <li class="nav-item" href="#">
 
-      	                        <a class="nav-link" href="contact.html">Terms & Conditions</a></li>
+      	                        <a class="nav-link" href="terms.html">Terms & Conditions</a></li>
 
                             </ul>
 
@@ -229,7 +229,7 @@
 
 			    			<li><a href="FAQ.html">FAQs</a></li>
 
-			    			<li><a href="contact.html">Terms & Conditions</a></li>
+			    			<li><a href="terms.html">Terms & Conditions</a></li>
 
 			    		</ul>
 

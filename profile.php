@@ -101,12 +101,12 @@
     </nav>
     <nav id="center">
         <h2>Review Form</h2>
-        <form action="review.php" method="POST" class="form" id="reviewform">
+        <form action="review.php" method="post" class="form" id="reviewform">
             
             <p class="date">
                 <label for="date">Review date:</label>
-                <input type="date" id="date" name="date" value="2021-04-07" 
-                min="2021-01-01" max="2021-12-31">
+                <input type="date" id="date" name="date" value='<?php echo date('Y-m-d');?>' 
+                min="2021-01-01" max="2030-12-31">
             </p>
             <p class="restaurantID">
                 <label for="restaurantID">RestaurantID:</label>

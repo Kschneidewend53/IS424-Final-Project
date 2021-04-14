@@ -124,7 +124,7 @@
 
                                <li class="nav-item" href="#">
 
-      	                        <a class="nav-link" href="contact.html">Terms & Conditions</a></li>
+      	                        <a class="nav-link" href="terms.html">Terms & Conditions</a></li>
 
                             </ul>
 
@@ -245,7 +245,7 @@
 
 			    			<li><a href="furnitures.html">FAQs</a></li>
 
-			    			<li><a href="contact.html">Terms & Conditions</a></li>
+			    			<li><a href="terms.html">Terms & Conditions</a></li>
 
 			    		</ul>
 
