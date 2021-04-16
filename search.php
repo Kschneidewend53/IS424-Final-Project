@@ -8,9 +8,14 @@
 <body>
     <form action="search.php" method="post"> 
         Search by restaurant:
-        <input name="rest" type="text" id="first" size="20"> <br />
+        <input name="rest" type="text" id="rest" size="20"> 
+        &nbsp;
+        <input type="submit" name="submit1" value="Search"> 
+        <br>
         Search by dish:
-        <input name="dish" type="text" id="last" size="20"> <input type="submit" name="submit1" value="Search"> <input type="submit" name="submit2" value="Select All">
+        <input name="dish" type="text" id="dish" size="20"> 
+        &nbsp;
+        <input type="submit" name="submit2" value="Select All">
     </form>
     <?php
         $myUserName = "id16374744_foodies"; // line 19-22 remote connect to database
