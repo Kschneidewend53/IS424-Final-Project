@@ -71,17 +71,16 @@
 ?>
 <body>
     <nav>
-        <h1>logo</h1>
+        <?php 
+            echo "<h1>" . $user_row['user_name'] . "'s Profile Page</h1>"; 
+        ?>
     </nav>
     <nav id="right">
         <a href="Sign-in.php">Back to login in</a>
 		<a href="index.html"> Home Page</a>
     </nav>
     <nav id="center">
-        <img src="placeholder?.gif"/> <br>
-
             <?php
-                echo "<p><b>Your name is " . $user_row['user_name'] . "</b></p>";
                 echo "<p><b>Your email address is " . $user_row['email'] . "</b></p>";
 				$num = mysqli_num_rows($result1);
 				if ($num > 0){
