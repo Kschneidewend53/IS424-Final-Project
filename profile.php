@@ -138,7 +138,7 @@
                 <textarea type="text" name="review" placeholder="Write your review here"></textarea>
             </p>
             <p class="submit">
-                <input type="submit" value="Submit">
+                <input type="submit" name="submit1" value="Submit">
             </p>
         </form>
     </nav>

@@ -20,12 +20,14 @@
 		    die ("Connection failed: ");
 	    }
 
+        if ($_POST["submit1"]) {}
         $restaurantID =$_POST['restaurantID'];
         $categoryID =$_POST['categoryID'];
         $dishID =$_POST['dishID'];
         $score = $_POST['score'];
         $date = $_POST['date'];
         $review = $_POST['review'];
+        $query_update="UPDATE Review SET rest_ID='$restaurantID', dish_ID='$dishID', score='$score', review='$review', time='$date'";
         $formcontent="On $date \n 
         At $restaurantID \n
         Review for: $categoryID $dishID \n 
