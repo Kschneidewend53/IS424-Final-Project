@@ -42,17 +42,13 @@
         $dish_ID_row = mysqli_fetch_array($dish_ID_result);
         $dish_ID = $dish_ID_row['dish_ID'];
 
-        echo $user_ID . "<br>";
-        echo $review_date . "<br>";
-        echo $rest_name . "<br>";
-        echo $rest_ID . "<br>";
-        echo $category_name . "<br>";
-        echo $category_ID . "<br>";
-        echo $dish_name . "<br>";
-        echo $dish_ID . "<br>";
-        echo $score . "<br>";
-        echo $content . "<br>";
-
+        $new_review_sql = "INSERT INTO `Review` (`time`, `content`, `score`, `rest_ID`, `user_ID`, `dish_ID`) VALUES (\"$review_date\", \"$content\", \"$score\", \"$rest_ID\", \"$user_ID\", \"$dish_ID\")";
+        if(mysqli_query($conn, $new_review_sql)){
+            echo "<script> location.href='profile.php?user=" . $user_ID . "'; </script>";
+            exit;
+        } else {
+            echo "<p>Error " . mysqli_error($conn) . "</p><p><a href='profile.php?user=" . $user_ID . "'; >Back</a></p>";
+        }
     ?>
 
 </body>

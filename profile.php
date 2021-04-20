@@ -91,6 +91,7 @@
 					echo "<b>Your reviews and associated ratings are</b>";
 					echo "<br><br>";
                     echo "<table border=`1`>";
+                    echo "<tr height=40><td width=100>Date</td><td width=400>Dish Reviewed</td><td width=50>Score</td><td width=500>Review</td></tr>";
 					while($review_row = mysqli_fetch_assoc($result1)) {
 						echo "<tr height=40>";
                         echo "<td width=100>". $review_row["time"] . "</td>";
@@ -184,9 +185,12 @@
                 <input type="submit" name="submit1" value="Submit">
             </p>
         </form>
+        <br><br><br>;
+        <h2> Add a new Restaurant or Dish </h2>
+        
     </nav>
     <p id="center" class="xlarge">
-        <a href="FAQs.html">Any questions for us? </a>
+        <a href="FAQ.html">Any questions for us? </a>
     </p>
 </body>
 </html>
