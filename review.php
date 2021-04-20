@@ -28,7 +28,7 @@
             $date = $_POST['date'];
             $review = $_POST['review'];
             $query_update="UPDATE Review SET rest_ID='$restaurantID', dish_ID='$dishID', score='$score', review='$review', time='$date' WHERE Review.user_ID='$user_ID'";
-            $result_update=mysqli_query($conn, $query_update)
+            $result_update=mysqli_query($conn, $query_update);
             $formcontent="On $date \n 
             At $restaurantID \n
             Review for: $categoryID $dishID \n 

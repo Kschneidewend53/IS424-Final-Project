@@ -102,7 +102,7 @@
     <nav id="center">
         <h2>Review Form</h2>
         <form action="review.php" method="post" class="form" id="reviewform">
-            <input name="userID" type="hidden" value="<?php echo $user_ID>">
+            <input name="userID" type="hidden" value="<?php echo $user_ID ?>">
             <p class="date">
                 <label for="date">Review date:</label>
                 <input type="date" id="date" name="date" value='<?php echo date('Y-m-d');?>' 
