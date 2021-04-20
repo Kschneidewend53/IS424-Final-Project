@@ -140,6 +140,11 @@
 
       	                        <a class="nav-link" href="terms.html">Terms & Conditions</a></li>
 
+								<li class="nav-item">
+
+								<a class="nav-link" href="https://madisonfoodies.000webhostapp.com/search.php">Search</a></li>
+	
+
                             </ul>
 
                         </div>
