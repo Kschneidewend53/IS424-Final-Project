@@ -185,9 +185,9 @@
                 <input type="submit" name="submit1" value="Submit">
             </p>
         </form>
-        <br><br><br>;
+        <br>;
         <h2> Add a new Restaurant or Dish </h2>
-        
+
     </nav>
     <p id="center" class="xlarge">
         <a href="FAQ.html">Any questions for us? </a>
