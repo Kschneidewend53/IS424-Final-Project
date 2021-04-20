@@ -63,7 +63,11 @@
     $result = mysqli_query($conn, $user_pull_sql); // Run the query
     $user_row = mysqli_fetch_array($result); // Bring the result into an array consisting of the row of user data
 	
-	$review_pull_sql = "SELECT * FROM `Review` WHERE `user_ID` = '$user_ID'"; // Pull review information from databse
+    $review_pull_sql = "SELECT `review_ID`, `time`, `content`, `score`, `rest_name`, `dish_name`
+                        FROM `Review`
+                        LEFT JOIN `Restaurant` ON Review.rest_ID = Restaurant.rest_ID
+                        LEFT JOIN `Dish` ON Review.dish_ID = Dish.dish_ID
+                        WHERE `user_ID` = '$user_ID'"; // Pull review information from database
 	$result1 = mysqli_query($conn, $review_pull_sql); // Run the query and test if successful
 	if (!$result1) {
 					die("cannot proceed select query");
@@ -76,25 +80,29 @@
         ?>
     </nav>
     <nav id="right">
-        <a href="Sign-in.php">Back to login in</a>
+        <a href="Sign-in.php">Log Out</a> &nbsp; &nbsp; 
 		<a href="index.html"> Home Page</a>
     </nav>
-    <nav id="center">
+    <nav id="left">
             <?php
                 echo "<p><b>Your email address is " . $user_row['email'] . "</b></p>";
 				$num = mysqli_num_rows($result1);
 				if ($num > 0){
 					echo "<b>Your reviews and associated ratings are</b>";
-					echo "<br>";
+					echo "<br><br>";
+                    echo "<table border=`1`>";
 					while($review_row = mysqli_fetch_assoc($result1)) {
-						echo $review_row["content"];
-						echo "&nbsp;&nbsp;&nbsp";
-						echo $review_row["score"];
-						echo "<br>";
+						echo "<tr height=40>";
+                        echo "<td width=100>". $review_row["time"] . "</td>";
+                        echo "<td width=400>" . $review_row["dish_name"] . " from " . $review_row["rest_name"] . "</td>";
+                        echo "<td width=50>" . $review_row["score"] . "</td>";
+						echo "<td width=500>" . $review_row["content"] . "</td>";
+						echo "</tr>";
 					}
+                    echo "</table><br><br><br><br>";
 				}
 				else {
-					echo "no rows found";
+					echo "no reviews posted yet";
 				}
             ?>
     </nav>
