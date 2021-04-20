@@ -115,23 +115,24 @@
                 <input type="date" id="date" name="date" value='<?php echo date('Y-m-d');?>' 
                 min="2021-01-01" max="2030-12-31">
             </p>
-            <p class="rest_name">
+            <p>
                 <label for="rest_name">Restaurant:</label>
                 <select id="rest_name" name="rest_name" form="reviewform">
                     <?php
-                        $restaurant_names_sql = "SELECT DISTINCT `rest_name` FROM `Restaurant`";
+                        $restaurant_names_sql = "SELECT DISTINCT rest_name FROM Restaurant";
                         $result_rest = mysqli_query($conn, $restaurant_names_sql);
 	                    if (!$result_rest) {
 					        die("cannot proceed select query");
 	                    }
                         while($review_row = mysqli_fetch_assoc($result_rest)) {
-                            echo "<option value=`" . $review_row["rest_name"] . "`>" . $review_row["rest_name"] . "</option>";
+                            $rest_name = $review_row['rest_name'];
+                            echo "<option value='".$rest_name."'>".$rest_name."</option>";
                         }
                     ?>
                 </select>
             </p>
 
-            <p class="category_name">
+            <p>
                 <label for="category_name">Food Category:</label>
                 <select id="category_name" name="category_name" form="reviewform">
                     <?php
@@ -141,23 +142,25 @@
 					        die("cannot proceed select query");
 	                    }
                         while($review_row = mysqli_fetch_assoc($result_category)) {
-                            echo "<option value=`" . $review_row["category_name"] . "`>" . $review_row["category_name"] . "</option>";
+                            $category_name = $review_row['category_name'];
+                            echo "<option value='".$category_name."'>".$category_name."</option>";
                         }
                     ?>
                 </select>
             </p>
 
-            <p class="dish_name">
+            <p>
                 <label for="dish_name">Dish Name:</label>
                 <select id="dish_name" name="dish_name" form="reviewform">
                     <?php
-                        $dish_names_sql = "SELECT DISTINCT `dish_name` FROM `Dish`";
+                        $dish_names_sql = "SELECT DISTINCT dish_name FROM Dish";
                         $result_dish = mysqli_query($conn, $dish_names_sql);
 	                    if (!$result_dish) {
 					        die("cannot proceed select query");
 	                    }
                         while($review_row = mysqli_fetch_assoc($result_dish)) {
-                            echo "<option value=`" . $review_row["dish_name"] . "`>" . $review_row["dish_name"] . "</option>";
+                            $dish_name = $review_row['dish_name'];
+                            echo "<option value='".$dish_name."'>".$dish_name."</option>;";
                         }
                     ?>
                 </select>

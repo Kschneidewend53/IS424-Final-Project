@@ -8,7 +8,6 @@
 <body>
 
     <?php
-        //get the name and email
 
         $myUserName = "id16374744_foodies";
 	    $myPassword = "IS424Group2!";
@@ -19,46 +18,40 @@
 	    if (!$conn) {
 		    die ("Connection failed: ");
 	    }
-
-        if ($_POST["submit1"]) {
-            $restaurantID =$_POST['restaurantID'];
-            $categoryID =$_POST['categoryID'];
-            $dishID =$_POST['dishID'];
-            $score = $_POST['score'];
-            $date = $_POST['date'];
-            $review = $_POST['review'];
-            $query_update="UPDATE Review SET rest_ID='$restaurantID', dish_ID='$dishID', score='$score', review='$review', time='$date' WHERE Review.user_ID='$user_ID'";
-            $result_update=mysqli_query($conn, $query_update);
-            $formcontent="On $date \n 
-            At $restaurantID \n
-            Review for: $categoryID $dishID \n 
-            Review Content: $review";
-            $subject = "Review";
-        }
         
-        echo $formcontent;
-        echo "Thank You!";
+        $user_ID = $_POST['userID'];
+        $review_date = $_POST['date'];
+        $rest_name = $_POST['rest_name'];
+        $category_name = $_POST['category_name'];
+        $dish_name = $_POST['dish_name'];
+        $score = $_POST['score'];
+        $content = $_POST['content'];
+        
+        $rest_ID_grab = "SELECT * FROM `Restaurant` WHERE `rest_name` = '$rest_name'";
+        $rest_ID_result = mysqli_query($conn, $rest_ID_grab);
+        $rest_ID_row = mysqli_fetch_array($rest_ID_result);
+        $rest_ID = $rest_ID_row['rest_ID'];
 
-        //check if email already exists
-        $review_check_sql = "SELECT * FROM `User` WHERE email = '$email'";
-        $result = mysqli_query($conn, $user_check_sql);
+        $category_ID_grab = "SELECT * FROM `Category` WHERE `category_name` = '$category_name'";
+        $category_ID_result = mysqli_query($conn, $category_ID_grab);
+        $category_ID_row = mysqli_fetch_array($category_ID_result);
+        $category_ID = $category_ID_row['category_ID'];
 
-        //check if result has 1 or more
-        if(mysqli_num_rows($result) > 0) {
-            echo "<h1>Sorry!</h1><p>Email already in use. Please login or try a new email instead.</p><p><b><a href=\"Sign-in.php\">Log in</a></b></p>";
-        } else {
-            echo "<h1> Thanks for Signing Up! </h1><p>Welcome, $username ... We have your email address as $email</p>";
-    
-            //insert entries into database
-            $sql = "insert into User(user_name, email, password) values (\"$username\", \"$email\", \"$password\")";
+        $dish_ID_grab = "SELECT * FROM `Dish` WHERE `dish_name` = '$dish_name'";
+        $dish_ID_result = mysqli_query($conn, $dish_ID_grab);
+        $dish_ID_row = mysqli_fetch_array($dish_ID_result);
+        $dish_ID = $dish_ID_row['dish_ID'];
 
-            if(mysqli_query($conn, $sql)){
-                echo "<b><a href=\"Sign-in.php\">Log in</a></b>";
-                echo "<script> location.href='Sign-in.php'; </script>";
-            } else {
-                echo "<p>Error " . mysqli_error($conn) . "</p><p><a href=\"sign_up.php\">Back</a></p>";
-            }
-        }
+        echo $user_ID . "<br>";
+        echo $review_date . "<br>";
+        echo $rest_name . "<br>";
+        echo $rest_ID . "<br>";
+        echo $category_name . "<br>";
+        echo $category_ID . "<br>";
+        echo $dish_name . "<br>";
+        echo $dish_ID . "<br>";
+        echo $score . "<br>";
+        echo $content . "<br>";
 
     ?>
 
